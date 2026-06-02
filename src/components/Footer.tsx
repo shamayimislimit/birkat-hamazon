@@ -77,7 +77,7 @@ export const Footer = ({ language }: FooterProps) => {
           </SheetTrigger>
           <SheetContent side={isRtl ? 'right' : 'left'} dir={isRtl ? 'rtl' : 'ltr'} className="bg-background/95 backdrop-blur-md">
             <SheetHeader className={isRtl ? 'text-right' : ''}>
-              <SheetTitle className="text-2xl font-cinzel text-primary">{getTranslation('wantYourOwn', language)}</SheetTitle>
+              <SheetTitle className="text-2xl font-cormorant text-primary">{getTranslation('wantYourOwn', language)}</SheetTitle>
               <SheetDescription className="space-y-4 pt-6">
                 <a 
                   href="https://wa.me/972525234327"

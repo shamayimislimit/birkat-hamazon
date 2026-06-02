@@ -1,4 +1,4 @@
-import { Share, Share2, Download, Type, Languages, AudioLines, Settings } from 'lucide-react';
+import { Share, Share2, Download, Type, Languages, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Select,
@@ -10,7 +10,7 @@ import {
 import { Slider } from '@/components/ui/slider';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
-import { Language, Nosach } from '@/types/birkat';
+import { Language } from '@/types/birkat';
 import { translations, getTranslation } from '@/data/translations';
 import { toast } from 'sonner';
 import { useState } from 'react';
@@ -32,8 +32,6 @@ import { cn } from '@/lib/utils';
 interface SettingsToolbarProps {
   fontSize: number;
   onFontSizeChange: (size: number) => void;
-  nosach: Nosach;
-  onNosachChange: (nosach: Nosach) => void;
   language: Language;
   onLanguageChange: (lang: Language) => void;
   phoneticMode: boolean;
@@ -43,20 +41,16 @@ interface SettingsToolbarProps {
 export const SettingsToolbar = ({
   fontSize,
   onFontSizeChange,
-  nosach,
-  onNosachChange,
   language,
   onLanguageChange,
   phoneticMode,
   onPhoneticModeChange,
 }: SettingsToolbarProps) => {
   const [showIOSDialog, setShowIOSDialog] = useState(false);
-  
+
   const isRtl = language === 'hebrew';
 
-  const supportedNosach = config.settings.supportedNosach as Nosach[];
   const supportedLanguages = config.settings.supportedLanguages as Language[];
-  const useTwoNosachToggle = supportedNosach.length === 2;
 
   const handle = async () => {
     const shareTitle = `${config.app.title.hebrew} - ${config.dedication.hebrew}`;
@@ -149,7 +143,7 @@ export const SettingsToolbar = ({
             <div className="space-y-3">
               <div className={cn("flex items-center gap-2", isRtl && "flex-row-reverse")}>
                 <Type className="w-4 h-4 text-primary" />
-                <Label className="text-xs font-cinzel font-semibold">{getTranslation('fontSize', language)}</Label>
+                <Label className="text-xs font-cormorant font-semibold">{getTranslation('fontSize', language)}</Label>
               </div>
               <Slider
                 value={[fontSize]}
@@ -161,50 +155,9 @@ export const SettingsToolbar = ({
               />
             </div>
 
-            {/* Nosach with refined styling */}
-            {useTwoNosachToggle ? (
-              <div className="space-y-3 p-3 rounded-xl bg-accent/20 border border-accent/40">
-                <Label className="text-xs font-cinzel font-semibold">
-                  {getTranslation('nosach', language)}: {translations.nosachOptions[nosach][language]}
-                </Label>
-                <div className={cn("flex items-center justify-center gap-3", isRtl && "flex-row-reverse")}>
-                  <Label className={cn("text-xs font-assistant transition-all duration-200", nosach === (isRtl ? supportedNosach[1] : supportedNosach[0]) ? "text-foreground font-semibold" : "text-muted-foreground")}>
-                    {translations.nosachOptions[isRtl ? supportedNosach[1] : supportedNosach[0]][language]}
-                  </Label>
-                  <Switch
-                    checked={nosach === supportedNosach[1]}
-                    onCheckedChange={(checked) => onNosachChange(checked ? supportedNosach[1] : supportedNosach[0])}
-                    className="data-[state=checked]:bg-primary data-[state=unchecked]:bg-secondary/60"
-                  />
-                  <Label className={cn("text-xs font-assistant transition-all duration-200", nosach === (isRtl ? supportedNosach[0] : supportedNosach[1]) ? "text-foreground font-semibold" : "text-muted-foreground")}>
-                    {translations.nosachOptions[isRtl ? supportedNosach[0] : supportedNosach[1]][language]}
-                  </Label>
-                </div>
-              </div>
-            ) : (
-              <div className="space-y-3">
-                <Label className={cn("text-xs font-cinzel font-semibold flex items-center gap-2", isRtl && "flex-row-reverse")}>
-                  <AudioLines className="w-4 h-4 text-primary" />
-                  {getTranslation('nosach', language)}
-                </Label>
-                <Select value={nosach} onValueChange={(v) => onNosachChange(v as Nosach)}>
-                  <SelectTrigger className="h-10 rounded-xl border-2 font-assistant">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent className="rounded-xl">
-                    {supportedNosach.map((n) => (
-                      <SelectItem key={n} value={n} className="font-assistant">
-                        {translations.nosachOptions[n][language]}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-            )}
-
             {/* Language with refined styling */}
             <div className="space-y-3">
-              <Label className={cn("text-xs font-cinzel font-semibold flex items-center gap-2", isRtl && "flex-row-reverse")}>
+              <Label className={cn("text-xs font-cormorant font-semibold flex items-center gap-2", isRtl && "flex-row-reverse")}>
                 <Languages className="w-4 h-4 text-primary" />
                 {getTranslation('language', language)}
               </Label>
@@ -224,7 +177,7 @@ export const SettingsToolbar = ({
 
             {/* Phonetic Toggle with elegant styling */}
             <div className={cn("flex items-center justify-between gap-3 p-3 rounded-xl bg-muted/30", isRtl && "flex-row-reverse")}>
-              <Label htmlFor="phonetic" className="text-xs font-cinzel font-semibold">
+              <Label htmlFor="phonetic" className="text-xs font-cormorant font-semibold">
                 {getTranslation('phonetic', language)}
               </Label>
               <div className="flex items-center gap-2">
@@ -249,7 +202,7 @@ export const SettingsToolbar = ({
       <Dialog open={showIOSDialog} onOpenChange={setShowIOSDialog}>
         <DialogContent dir={isRtl ? 'rtl' : 'ltr'} className="rounded-2xl bg-background/95 backdrop-blur-md">
           <DialogHeader>
-            <DialogTitle className={cn("text-2xl font-cinzel text-primary", isRtl ? "text-right" : "text-left")}>
+            <DialogTitle className={cn("text-2xl font-cormorant text-primary", isRtl ? "text-right" : "text-left")}>
               {translations.iosInstall.title[language]}
             </DialogTitle>
             <DialogDescription className={cn("space-y-4 pt-2", isRtl ? "text-right" : "text-left")}>

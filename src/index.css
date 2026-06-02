@@ -2,123 +2,98 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Sober memorial palette — slate / steel blue / silver.
+   All colors MUST be HSL. */
 
 @layer base {
   :root {
-    /* Elegant wedding color palette - Soft rose gold and champagne */
-    --background: 25 45% 97%;
-    --foreground: 25 25% 25%;
+    /* Cool near-white background, slate foreground */
+    --background: 220 20% 97%;
+    --foreground: 215 28% 18%;
 
     --card: 0 0% 100%;
-    --card-foreground: 25 25% 25%;
+    --card-foreground: 215 28% 18%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 25 25% 25%;
+    --popover-foreground: 215 28% 18%;
 
-    --primary: 350 75% 65%;
+    /* Steel blue as the only accent */
+    --primary: 215 42% 32%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 40 65% 70%;
-    --secondary-foreground: 25 25% 25%;
+    /* Silver-gray, supports primary, never competes */
+    --secondary: 220 14% 78%;
+    --secondary-foreground: 215 28% 22%;
 
-    --muted: 25 20% 94%;
-    --muted-foreground: 25 15% 50%;
+    --muted: 220 14% 93%;
+    --muted-foreground: 220 10% 45%;
 
-    --accent: 340 65% 88%;
-    --accent-foreground: 25 25% 25%;
+    --accent: 215 22% 90%;
+    --accent-foreground: 215 28% 22%;
 
-    --destructive: 0 70% 60%;
+    --destructive: 0 60% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 25 25% 90%;
-    --input: 25 25% 92%;
-    --ring: 350 75% 65%;
+    --border: 220 14% 88%;
+    --input: 220 14% 92%;
+    --ring: 215 42% 32%;
 
-    --radius: 1rem;
-    
-    /* Romantic wedding gradients */
-    --gradient-wedding: linear-gradient(135deg, hsl(350 75% 95%) 0%, hsl(25 55% 96%) 35%, hsl(40 60% 94%) 70%, hsl(350 70% 96%) 100%);
-    --gradient-overlay: radial-gradient(ellipse at 30% 30%, hsl(350 80% 90% / 0.15), transparent 60%),
-                        radial-gradient(ellipse at 70% 70%, hsl(40 70% 88% / 0.12), transparent 60%);
-    --gradient-gold: linear-gradient(135deg, hsl(45 85% 82%), hsl(40 75% 75%));
-    --gradient-rose: linear-gradient(135deg, hsl(350 70% 85%), hsl(340 65% 80%));
-    --gradient-shimmer: linear-gradient(120deg, transparent 0%, hsl(0 0% 100% / 0.3) 50%, transparent 100%);
-    
-    /* Elegant shadows with warmth */
-    --shadow-soft: 0 4px 24px hsl(350 40% 80% / 0.18);
-    --shadow-elegant: 0 10px 50px hsl(350 35% 75% / 0.22);
-    --shadow-glow: 0 0 80px hsl(350 70% 85% / 0.35);
-    --shadow-card: 0 6px 30px hsl(25 30% 80% / 0.15);
-    
-    /* Smooth transitions */
-    --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-spring: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Background — very faint cool gradient, no warm tones */
+    --gradient-wedding: linear-gradient(180deg, hsl(220 20% 98%) 0%, hsl(215 18% 95%) 100%);
+    --gradient-overlay: radial-gradient(ellipse at 50% 0%, hsl(215 30% 90% / 0.35), transparent 60%);
+    --gradient-silver: linear-gradient(135deg, hsl(220 12% 88%), hsl(220 8% 72%));
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Quiet shadows */
+    --shadow-soft: 0 2px 12px hsl(215 25% 40% / 0.06);
+    --shadow-elegant: 0 8px 32px hsl(215 30% 30% / 0.08);
+    --shadow-card: 0 4px 18px hsl(215 25% 35% / 0.05);
 
-    --sidebar-primary: 240 5.9% 10%;
+    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 220 20% 98%;
+    --sidebar-foreground: 215 25% 26%;
+    --sidebar-primary: 215 42% 32%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 93%;
+    --sidebar-accent-foreground: 215 28% 22%;
+    --sidebar-border: 220 14% 88%;
+    --sidebar-ring: 215 42% 32%;
   }
 
   .dark {
-    --background: 25 25% 10%;
-    --foreground: 25 15% 92%;
+    --background: 215 28% 12%;
+    --foreground: 220 14% 92%;
 
-    --card: 25 20% 14%;
-    --card-foreground: 25 15% 92%;
+    --card: 215 25% 16%;
+    --card-foreground: 220 14% 92%;
 
-    --popover: 25 20% 14%;
-    --popover-foreground: 25 15% 92%;
+    --popover: 215 25% 16%;
+    --popover-foreground: 220 14% 92%;
 
-    --primary: 350 70% 55%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 215 50% 70%;
+    --primary-foreground: 215 30% 14%;
 
-    --secondary: 40 50% 40%;
-    --secondary-foreground: 25 15% 92%;
+    --secondary: 215 15% 30%;
+    --secondary-foreground: 220 14% 92%;
 
-    --muted: 25 15% 22%;
-    --muted-foreground: 25 10% 60%;
+    --muted: 215 18% 22%;
+    --muted-foreground: 220 10% 65%;
 
-    --accent: 340 60% 45%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 215 20% 24%;
+    --accent-foreground: 220 14% 92%;
 
-    --destructive: 0 65% 50%;
+    --destructive: 0 55% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 25 15% 22%;
-    --input: 25 15% 22%;
-    --ring: 350 70% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 215 18% 24%;
+    --input: 215 18% 24%;
+    --ring: 215 50% 70%;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-  }
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground; }
 }

@@ -1,4 +1,5 @@
 import { Header } from '@/components/Header';
+import { NosachToggle } from '@/components/NosachToggle';
 import { SettingsToolbar } from '@/components/SettingsToolbar';
 import { PrayerText } from '@/components/PrayerText';
 import { Footer } from '@/components/Footer';
@@ -16,36 +17,37 @@ const Index = () => {
     };
 
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-
     return () => {
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
     };
   }, []);
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* Elegant wedding background */}
+    <div className="min-h-screen relative">
+      {/* Sober gradient background, no decorative glows */}
       <div className="fixed inset-0 bg-[var(--gradient-wedding)] -z-10" />
       <div className="fixed inset-0 bg-[var(--gradient-overlay)] -z-10" />
-      
-      {/* Romantic decorative glows */}
-      <div className="fixed top-0 left-0 w-[500px] h-[500px] bg-primary/8 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 -z-10 animate-pulse" style={{ animationDuration: '8s' }} />
-      <div className="fixed bottom-0 right-0 w-[500px] h-[500px] bg-secondary/8 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2 -z-10 animate-pulse" style={{ animationDuration: '10s' }} />
-      <div className="fixed top-1/2 left-1/2 w-[400px] h-[400px] bg-accent/6 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 -z-10 animate-pulse" style={{ animationDuration: '12s' }} />
-      
-      <div className="max-w-4xl mx-auto relative">
+
+      <div className="max-w-3xl mx-auto relative">
         <Header language={settings.language} nosach={settings.nosach} />
 
         <SettingsToolbar
           fontSize={settings.fontSize}
           onFontSizeChange={(size) => updateSettings({ fontSize: size })}
-          nosach={settings.nosach}
-          onNosachChange={(nosach) => updateSettings({ nosach })}
           language={settings.language}
           onLanguageChange={(language) => updateSettings({ language })}
           phoneticMode={settings.phoneticMode}
           onPhoneticModeChange={(phoneticMode) => updateSettings({ phoneticMode })}
         />
+
+        {/* Always-visible nosach toggle, sticky just under the header */}
+        <div className="sticky top-0 z-10 py-3 bg-background/85 backdrop-blur-sm border-b border-border/60">
+          <NosachToggle
+            nosach={settings.nosach}
+            onNosachChange={(nosach) => updateSettings({ nosach })}
+            language={settings.language}
+          />
+        </div>
 
         <main className="p-4">
           <PrayerText

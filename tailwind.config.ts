@@ -16,10 +16,8 @@ export default {
       fontFamily: {
         assistant: ['Assistant', 'sans-serif'],
         frank: ['Frank Ruhl Libre', 'serif'],
+        david: ['David Libre', 'Frank Ruhl Libre', 'serif'],
         cormorant: ['Cormorant Garamond', 'serif'],
-        italiana: ['Italiana', 'serif'],
-        vibes: ['Great Vibes', 'cursive'],
-        cinzel: ['Cinzel', 'serif'],
         rubik: ['Rubik', 'sans-serif'],
       },
       colors: {

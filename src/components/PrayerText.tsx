@@ -347,8 +347,8 @@ export const PrayerText = ({ language, nosach, phoneticMode, fontSize }: PrayerT
       : "flex items-center w-full group gap-2 px-2 hover:bg-accent/20 rounded-lg transition-colors duration-200 py-1";
     
     const titleClassName = isSpecial
-      ? `text-lg font-cinzel font-bold flex-1 ${isRtl ? 'text-right' : 'text-left'} text-primary`
-      : `text-base font-cinzel font-semibold flex-1 ${isRtl ? 'text-right' : 'text-left'} text-foreground/90`;
+      ? `text-lg font-cormorant font-bold flex-1 ${isRtl ? 'text-right' : 'text-left'} text-primary`
+      : `text-base font-cormorant font-semibold flex-1 ${isRtl ? 'text-right' : 'text-left'} text-foreground/90`;
     
     return (
     <Card className={cardClassName}>
