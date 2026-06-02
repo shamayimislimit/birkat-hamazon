@@ -30,7 +30,8 @@
       "nosach": "edot-hamizrah",
       "language": "hebrew",
       "fontSize": 18,
-      "phoneticMode": false
+      "phoneticMode": false,
+      "prayerFont": "frank"
     }
   }
 }

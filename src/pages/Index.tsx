@@ -38,6 +38,8 @@ const Index = () => {
           onLanguageChange={(language) => updateSettings({ language })}
           phoneticMode={settings.phoneticMode}
           onPhoneticModeChange={(phoneticMode) => updateSettings({ phoneticMode })}
+          prayerFont={settings.prayerFont}
+          onPrayerFontChange={(prayerFont) => updateSettings({ prayerFont })}
         />
 
         {/* Always-visible nosach toggle, sticky just under the header */}
@@ -55,6 +57,7 @@ const Index = () => {
             nosach={settings.nosach}
             phoneticMode={settings.phoneticMode}
             fontSize={settings.fontSize}
+            prayerFont={settings.prayerFont}
           />
         </main>
 

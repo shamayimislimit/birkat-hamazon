@@ -36,6 +36,26 @@ export const translations = {
     french: 'Phonétique',
     english: 'Phonetic',
   },
+  prayerFont: {
+    hebrew: 'גופן התפילה',
+    french: 'Police de la prière',
+    english: 'Prayer font',
+  },
+  fontFrank: {
+    hebrew: 'פרנק (קלאסי)',
+    french: 'Frank Ruhl (classique)',
+    english: 'Frank Ruhl (classic)',
+  },
+  fontDavid: {
+    hebrew: 'דוד (תורני)',
+    french: 'David (Torah)',
+    english: 'David (Torah)',
+  },
+  fontAssistant: {
+    hebrew: 'אסיסטנט (מודרני)',
+    french: 'Assistant (moderne)',
+    english: 'Assistant (modern)',
+  },
   share: {
     hebrew: 'שתף',
     french: 'Partager',

@@ -1,4 +1,4 @@
-import { Share, Share2, Download, Type, Languages, Settings } from 'lucide-react';
+import { Share, Share2, Download, Type, Languages, Settings, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Select,
@@ -10,7 +10,7 @@ import {
 import { Slider } from '@/components/ui/slider';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
-import { Language } from '@/types/birkat';
+import { Language, PrayerFont } from '@/types/birkat';
 import { translations, getTranslation } from '@/data/translations';
 import { toast } from 'sonner';
 import { useState } from 'react';
@@ -36,7 +36,15 @@ interface SettingsToolbarProps {
   onLanguageChange: (lang: Language) => void;
   phoneticMode: boolean;
   onPhoneticModeChange: (enabled: boolean) => void;
+  prayerFont: PrayerFont;
+  onPrayerFontChange: (font: PrayerFont) => void;
 }
+
+const PRAYER_FONT_OPTIONS: { value: PrayerFont; labelKey: 'fontFrank' | 'fontDavid' | 'fontAssistant'; previewClass: string }[] = [
+  { value: 'frank', labelKey: 'fontFrank', previewClass: 'font-frank' },
+  { value: 'david', labelKey: 'fontDavid', previewClass: 'font-david' },
+  { value: 'assistant', labelKey: 'fontAssistant', previewClass: 'font-assistant' },
+];
 
 export const SettingsToolbar = ({
   fontSize,
@@ -45,6 +53,8 @@ export const SettingsToolbar = ({
   onLanguageChange,
   phoneticMode,
   onPhoneticModeChange,
+  prayerFont,
+  onPrayerFontChange,
 }: SettingsToolbarProps) => {
   const [showIOSDialog, setShowIOSDialog] = useState(false);
 
@@ -153,6 +163,29 @@ export const SettingsToolbar = ({
                 step={1}
                 className="w-full"
               />
+            </div>
+
+            {/* Prayer font — three siddur-friendly faces */}
+            <div className="space-y-3">
+              <Label className={cn("text-xs font-cormorant font-semibold flex items-center gap-2", isRtl && "flex-row-reverse")}>
+                <BookOpen className="w-4 h-4 text-primary" />
+                {getTranslation('prayerFont', language)}
+              </Label>
+              <Select value={prayerFont} onValueChange={(v) => onPrayerFontChange(v as PrayerFont)}>
+                <SelectTrigger className="h-10 rounded-xl border-2 font-assistant">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent className="rounded-xl">
+                  {PRAYER_FONT_OPTIONS.map((opt) => (
+                    <SelectItem key={opt.value} value={opt.value} className={cn(opt.previewClass)}>
+                      <span className={opt.previewClass}>אבג&nbsp;·&nbsp;</span>
+                      <span className="font-assistant text-xs text-muted-foreground">
+                        {getTranslation(opt.labelKey, language)}
+                      </span>
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
             {/* Language with refined styling */}

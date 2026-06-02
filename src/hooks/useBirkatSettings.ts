@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BirkatSettings, Language } from '@/types/birkat';
+import { BirkatSettings, Language, PrayerFont } from '@/types/birkat';
 import config from '@/config.json';
 
 const STORAGE_KEY = 'birkat-hamazon-settings';
@@ -33,6 +33,7 @@ const buildDefaults = (): BirkatSettings => ({
   nosach: config.settings.defaults.nosach as BirkatSettings['nosach'],
   language: detectLanguage(),
   phoneticMode: config.settings.defaults.phoneticMode,
+  prayerFont: (config.settings.defaults.prayerFont as PrayerFont) ?? 'frank',
 });
 
 const readStored = (): BirkatSettings | null => {

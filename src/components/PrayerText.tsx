@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { getBirkatText } from '@/data/birkatText';
 import { useHebrewCalendar } from '@/hooks/useHebrewCalendar';
-import { Language, Nosach } from '@/types/birkat';
+import { Language, Nosach, PrayerFont } from '@/types/birkat';
 import { Card } from '@/components/ui/card';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { ChevronDown } from 'lucide-react';
@@ -12,9 +12,17 @@ interface PrayerTextProps {
   nosach: Nosach;
   phoneticMode: boolean;
   fontSize: number;
+  prayerFont: PrayerFont;
 }
 
-export const PrayerText = ({ language, nosach, phoneticMode, fontSize }: PrayerTextProps) => {
+const PRAYER_FONT_CLASS: Record<PrayerFont, string> = {
+  frank: 'font-frank',
+  david: 'font-david',
+  assistant: 'font-assistant',
+};
+
+export const PrayerText = ({ language, nosach, phoneticMode, fontSize, prayerFont }: PrayerTextProps) => {
+  const prayerFontClass = PRAYER_FONT_CLASS[prayerFont] ?? PRAYER_FONT_CLASS.frank;
   const calendar = useHebrewCalendar();
   const text = getBirkatText(language, nosach, phoneticMode);
   
@@ -56,7 +64,7 @@ export const PrayerText = ({ language, nosach, phoneticMode, fontSize }: PrayerT
     
     if (fullLineIsComment) {
       return (
-        <p key={idx} className={`leading-relaxed font-frank text-muted-foreground/60 ${isBold ? 'font-bold' : ''} ${lineHasHebrew ? 'text-right' : ''}`} dir={lineDir}>
+        <p key={idx} className={`leading-relaxed ${prayerFontClass} text-muted-foreground/60 ${isBold ? 'font-bold' : ''} ${lineHasHebrew ? 'text-right' : ''}`} dir={lineDir}>
           {displayLine}
         </p>
       );
@@ -213,14 +221,41 @@ export const PrayerText = ({ language, nosach, phoneticMode, fontSize }: PrayerT
     // If no segments were created, render as single line
     if (segments.length === 0) {
       return (
-        <p key={idx} className={`leading-relaxed font-frank ${isBold ? 'font-bold' : ''} ${lineHasHebrew ? 'text-right' : ''}`} dir={lineDir}>
+        <p key={idx} className={`leading-relaxed ${prayerFontClass} ${isBold ? 'font-bold' : ''} ${lineHasHebrew ? 'text-right' : ''}`} dir={lineDir}>
           {displayLine}
         </p>
       );
     }
 
+    // Mixed segments (instruction + prayer, or different directions): render as a
+    // borderless vertical grid so each segment has its own dir + text-align and
+    // Bidi reordering can't scramble the French/English punctuation against Hebrew.
+    const hasMixedDirections = segments.some((s) => hasHebrew(s.text)) && segments.some((s) => !hasHebrew(s.text));
+    const hasInstructionAndPrayer = segments.some((s) => s.isComment) && segments.some((s) => !s.isComment);
+    const useGridLayout = segments.length > 1 && (hasMixedDirections || hasInstructionAndPrayer);
+
+    if (useGridLayout) {
+      return (
+        <div key={idx} className={`grid gap-1 leading-relaxed ${prayerFontClass} ${isBold ? 'font-bold' : ''}`}>
+          {segments.map((segment, segIdx) => {
+            const segHasHebrew = hasHebrew(segment.text);
+            const segDir = segHasHebrew ? 'rtl' : 'ltr';
+            const align = segHasHebrew ? 'text-right' : 'text-left';
+            const tone = segment.isComment ? 'text-muted-foreground/60 text-sm' : '';
+            const cleaned = segHasHebrew ? segment.text.trim() : segment.text.replace(/^\s+|\s+$/g, '');
+            if (!cleaned) return null;
+            return (
+              <div key={segIdx} dir={segDir} className={`${align} ${tone}`}>
+                {cleaned}
+              </div>
+            );
+          })}
+        </div>
+      );
+    }
+
     return (
-      <p key={idx} className={`leading-relaxed font-frank ${isBold ? 'font-bold' : ''} ${lineHasHebrew ? 'text-right' : ''}`} dir={lineDir}>
+      <p key={idx} className={`leading-relaxed ${prayerFontClass} ${isBold ? 'font-bold' : ''} ${lineHasHebrew ? 'text-right' : ''}`} dir={lineDir}>
         {segments.map((segment, segIdx) => (
           <span key={segIdx} className={segment.isComment ? 'text-muted-foreground/60' : ''} dir={hasHebrew(segment.text) ? 'rtl' : undefined}>
             {segment.text}
