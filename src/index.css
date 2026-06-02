@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Elegant wedding color palette - Soft rose gold and champagne */
+    --background: 25 45% 97%;
+    --foreground: 25 25% 25%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 25 25% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 25% 25%;
+
+    --primary: 350 75% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 65% 70%;
+    --secondary-foreground: 25 25% 25%;
+
+    --muted: 25 20% 94%;
+    --muted-foreground: 25 15% 50%;
+
+    --accent: 340 65% 88%;
+    --accent-foreground: 25 25% 25%;
+
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 25 25% 90%;
+    --input: 25 25% 92%;
+    --ring: 350 75% 65%;
+
+    --radius: 1rem;
+    
+    /* Romantic wedding gradients */
+    --gradient-wedding: linear-gradient(135deg, hsl(350 75% 95%) 0%, hsl(25 55% 96%) 35%, hsl(40 60% 94%) 70%, hsl(350 70% 96%) 100%);
+    --gradient-overlay: radial-gradient(ellipse at 30% 30%, hsl(350 80% 90% / 0.15), transparent 60%),
+                        radial-gradient(ellipse at 70% 70%, hsl(40 70% 88% / 0.12), transparent 60%);
+    --gradient-gold: linear-gradient(135deg, hsl(45 85% 82%), hsl(40 75% 75%));
+    --gradient-rose: linear-gradient(135deg, hsl(350 70% 85%), hsl(340 65% 80%));
+    --gradient-shimmer: linear-gradient(120deg, transparent 0%, hsl(0 0% 100% / 0.3) 50%, transparent 100%);
+    
+    /* Elegant shadows with warmth */
+    --shadow-soft: 0 4px 24px hsl(350 40% 80% / 0.18);
+    --shadow-elegant: 0 10px 50px hsl(350 35% 75% / 0.22);
+    --shadow-glow: 0 0 80px hsl(350 70% 85% / 0.35);
+    --shadow-card: 0 6px 30px hsl(25 30% 80% / 0.15);
+    
+    /* Smooth transitions */
+    --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 25 25% 10%;
+    --foreground: 25 15% 92%;
+
+    --card: 25 20% 14%;
+    --card-foreground: 25 15% 92%;
+
+    --popover: 25 20% 14%;
+    --popover-foreground: 25 15% 92%;
+
+    --primary: 350 70% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 50% 40%;
+    --secondary-foreground: 25 15% 92%;
+
+    --muted: 25 15% 22%;
+    --muted-foreground: 25 10% 60%;
+
+    --accent: 340 60% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 25 15% 22%;
+    --input: 25 15% 22%;
+    --ring: 350 70% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

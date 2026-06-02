@@ -1,0 +1,27 @@
+{
+  "dedication": {
+    "hebrew": "לעילוי נשמת יהודה בן נזירה",
+    "french": "À la mémoire bénie de Yehouda ben Nezira",
+    "english": "In memory of Yehuda ben Nezira",
+    "photoPath": "/src/assets/yehuda.png"
+  },
+  "app": {
+    "iconPath": "/src/assets/yehuda.png",
+    "title": {
+      "hebrew": "ברכת המזון",
+      "english": "Birkat Hamazon",
+      "french": "Birkat Hamazon"
+    },
+    "shortName": "Birkat Hamazon"
+  },
+  "settings": {
+    "supportedNosach": ["ashkenaz", "edot-hamizrah"],
+    "supportedLanguages": ["hebrew", "french", "english"],
+    "defaults": {
+      "nosach": "edot-hamizrah",
+      "language": "hebrew",
+      "fontSize": 18,
+      "phoneticMode": false
+    }
+  }
+}
