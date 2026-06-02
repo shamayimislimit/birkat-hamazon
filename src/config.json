@@ -7,7 +7,12 @@
   },
   "saying": {
     "phrase": "Ya Salam",
-    "phraseHebrew": "יָא סָלָאם"
+    "phraseHebrew": "יָא סָלָאם",
+    "intro": {
+      "hebrew": "היה אומר",
+      "french": "Il aurait dit",
+      "english": "He would say"
+    }
   },
   "app": {
     "iconPath": "/src/assets/yehuda.png",

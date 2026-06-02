@@ -74,20 +74,24 @@ export const Header = ({ language, nosach }: HeaderProps) => {
         </p>
 
         {/* Remembered saying — « Ya Salam » */}
-        <blockquote
-          dir={isRtl ? 'rtl' : 'ltr'}
-          className={
-            language === 'hebrew'
-              ? 'mt-6 font-david text-2xl md:text-3xl text-primary/85'
-              : 'mt-6 font-cormorant italic text-2xl md:text-3xl font-light text-primary/85 tracking-wide'
-          }
-        >
-          {language === 'hebrew' ? (
-            <>«&nbsp;{config.saying.phraseHebrew}&nbsp;»</>
-          ) : (
-            <>«&nbsp;{config.saying.phrase}&nbsp;»</>
-          )}
-        </blockquote>
+        <figure className="mt-6 flex flex-col items-center gap-1.5" dir={isRtl ? 'rtl' : 'ltr'}>
+          <figcaption className="text-[11px] uppercase tracking-[0.22em] font-assistant text-muted-foreground/80">
+            {config.saying.intro[language]}
+          </figcaption>
+          <blockquote
+            className={
+              language === 'hebrew'
+                ? 'font-david text-2xl md:text-3xl text-primary/85'
+                : 'font-cormorant italic text-2xl md:text-3xl font-light text-primary/85 tracking-wide'
+            }
+          >
+            {language === 'hebrew' ? (
+              <>«&nbsp;{config.saying.phraseHebrew}&nbsp;»</>
+            ) : (
+              <>«&nbsp;{config.saying.phrase}&nbsp;»</>
+            )}
+          </blockquote>
+        </figure>
 
         {/* Nosach (small caption under the dedication, in case the toggle is collapsed) */}
         <p className="mt-6 text-xs uppercase tracking-[0.2em] font-assistant text-muted-foreground">
