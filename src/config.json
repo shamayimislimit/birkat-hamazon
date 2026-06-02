@@ -7,12 +7,7 @@
   },
   "saying": {
     "phrase": "Ya Salam",
-    "phraseHebrew": "יָא סָלָאם",
-    "intro": {
-      "hebrew": "היה רגיל לומר",
-      "french": "Il aimait dire",
-      "english": "He used to say"
-    }
+    "phraseHebrew": "יָא סָלָאם"
   },
   "app": {
     "iconPath": "/src/assets/yehuda.png",
