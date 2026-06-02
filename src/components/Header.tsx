@@ -24,32 +24,38 @@ export const Header = ({ language, nosach }: HeaderProps) => {
       </div>
 
       <div className="text-center pt-16 pb-10 px-4" dir={isRtl ? 'rtl' : 'ltr'}>
-        {/* Portrait — memorial treatment: full grayscale, soft opacity, steel-blue wash, vignette */}
+        {/* Portrait — framed memorial: soft warm halo, double silver ring, ז״ל caption */}
         <div className="flex justify-center mb-8">
-          <figure className="relative">
-            <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border border-border shadow-[var(--shadow-elegant)] ring-1 ring-white/80 ring-offset-2 ring-offset-background">
-              {/* The photograph itself: grayscale + slight contrast lift + 80% opacity */}
-              <img
-                src={yehudaPhoto}
-                alt={config.dedication[language]}
-                className="w-full h-full object-cover grayscale contrast-[0.95] brightness-105 opacity-80"
-              />
-              {/* Cool steel-blue wash to fold the portrait into the palette */}
-              <div className="absolute inset-0 bg-primary/10 mix-blend-multiply pointer-events-none" />
-              {/* Soft vignette — fades the edges toward the background */}
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  background:
-                    'radial-gradient(ellipse at center, transparent 55%, hsl(var(--background) / 0.55) 100%)',
-                }}
-              />
+          <figure className="relative flex flex-col items-center">
+            {/* Soft warm halo behind — candlelight feel */}
+            <div
+              aria-hidden
+              className="absolute -inset-6 rounded-full blur-2xl opacity-60 pointer-events-none"
+              style={{
+                background:
+                  'radial-gradient(circle at center, hsl(38 70% 78% / 0.45) 0%, hsl(215 30% 85% / 0.25) 45%, transparent 75%)',
+              }}
+            />
+
+            {/* Double silver ring frame */}
+            <div className="relative rounded-full p-[3px] bg-gradient-to-br from-white via-secondary/40 to-secondary shadow-[var(--shadow-elegant)]">
+              <div className="rounded-full p-[1.5px] bg-background">
+                <div className="w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden ring-1 ring-primary/20">
+                  <img
+                    src={yehudaPhoto}
+                    alt={config.dedication[language]}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
             </div>
 
-            {/* Subtle date / candle marker under the portrait — uncomment if a date is known */}
-            {/* <figcaption className="mt-3 text-[10px] uppercase tracking-[0.25em] font-assistant text-muted-foreground/80">
-              ז״ל
-            </figcaption> */}
+            {/* ז״ל — calligraphic memorial mark */}
+            <figcaption className="relative mt-4 flex items-center gap-3">
+              <span aria-hidden className="h-px w-8 bg-border" />
+              <span className="font-david text-base text-muted-foreground tracking-widest">ז״ל</span>
+              <span aria-hidden className="h-px w-8 bg-border" />
+            </figcaption>
           </figure>
         </div>
 

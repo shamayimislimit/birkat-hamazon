@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => ({
     mode === "development" && componentTagger(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico'],
+      includeAssets: ['favicon.ico', 'favicon-16.png', 'favicon-32.png', 'apple-touch-icon.png', 'app-icon-192.png', 'app-icon.png'],
       manifest: {
         name: `${config.app.title.hebrew} - ${config.dedication.hebrew}`,
         short_name: 'ברכת המזון',
@@ -30,16 +30,22 @@ export default defineConfig(({ mode }) => ({
         scope: '/birkat-hamazon/',
         icons: [
           {
-            src: '/birkat-hamazon/app-icon.png',
+            src: '/birkat-hamazon/app-icon-192.png',
             sizes: '192x192',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'any'
           },
           {
             src: '/birkat-hamazon/app-icon.png',
             sizes: '512x512',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'any'
+          },
+          {
+            src: '/birkat-hamazon/apple-touch-icon.png',
+            sizes: '180x180',
+            type: 'image/png',
+            purpose: 'any'
           }
         ]
       },
