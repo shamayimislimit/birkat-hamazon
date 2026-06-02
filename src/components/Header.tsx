@@ -24,17 +24,33 @@ export const Header = ({ language, nosach }: HeaderProps) => {
       </div>
 
       <div className="text-center pt-16 pb-10 px-4" dir={isRtl ? 'rtl' : 'ltr'}>
-        {/* Portrait — circular, silver ring, no glow */}
+        {/* Portrait — memorial treatment: full grayscale, soft opacity, steel-blue wash, vignette */}
         <div className="flex justify-center mb-8">
-          <div className="relative">
-            <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border border-border shadow-[var(--shadow-elegant)] ring-1 ring-white/80 ring-offset-2 ring-offset-background">
+          <figure className="relative">
+            <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border border-border shadow-[var(--shadow-elegant)] ring-1 ring-white/80 ring-offset-2 ring-offset-background">
+              {/* The photograph itself: grayscale + slight contrast lift + 80% opacity */}
               <img
                 src={yehudaPhoto}
                 alt={config.dedication[language]}
-                className="w-full h-full object-cover grayscale-[15%]"
+                className="w-full h-full object-cover grayscale contrast-[0.95] brightness-105 opacity-80"
+              />
+              {/* Cool steel-blue wash to fold the portrait into the palette */}
+              <div className="absolute inset-0 bg-primary/10 mix-blend-multiply pointer-events-none" />
+              {/* Soft vignette — fades the edges toward the background */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    'radial-gradient(ellipse at center, transparent 55%, hsl(var(--background) / 0.55) 100%)',
+                }}
               />
             </div>
-          </div>
+
+            {/* Subtle date / candle marker under the portrait — uncomment if a date is known */}
+            {/* <figcaption className="mt-3 text-[10px] uppercase tracking-[0.25em] font-assistant text-muted-foreground/80">
+              ז״ל
+            </figcaption> */}
+          </figure>
         </div>
 
         {/* Title — Hebrew uses David Libre for Torah-like dignity */}
