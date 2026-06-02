@@ -5,6 +5,15 @@
     "english": "In memory of Yehuda ben Nezira",
     "photoPath": "/src/assets/yehuda.png"
   },
+  "saying": {
+    "phrase": "Ya Salam",
+    "phraseHebrew": "יָא סָלָאם",
+    "intro": {
+      "hebrew": "היה רגיל לומר",
+      "french": "Il aimait dire",
+      "english": "He used to say"
+    }
+  },
   "app": {
     "iconPath": "/src/assets/yehuda.png",
     "title": {

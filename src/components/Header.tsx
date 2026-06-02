@@ -24,38 +24,24 @@ export const Header = ({ language, nosach }: HeaderProps) => {
       </div>
 
       <div className="text-center pt-16 pb-10 px-4" dir={isRtl ? 'rtl' : 'ltr'}>
-        {/* Portrait — framed memorial: soft warm halo, double silver ring, ז״ל caption */}
+        {/* Portrait — memorial treatment: full grayscale, soft opacity, steel-blue wash, vignette */}
         <div className="flex justify-center mb-8">
-          <figure className="relative flex flex-col items-center">
-            {/* Soft warm halo behind — candlelight feel */}
-            <div
-              aria-hidden
-              className="absolute -inset-6 rounded-full blur-2xl opacity-60 pointer-events-none"
-              style={{
-                background:
-                  'radial-gradient(circle at center, hsl(38 70% 78% / 0.45) 0%, hsl(215 30% 85% / 0.25) 45%, transparent 75%)',
-              }}
-            />
-
-            {/* Double silver ring frame */}
-            <div className="relative rounded-full p-[3px] bg-gradient-to-br from-white via-secondary/40 to-secondary shadow-[var(--shadow-elegant)]">
-              <div className="rounded-full p-[1.5px] bg-background">
-                <div className="w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden ring-1 ring-primary/20">
-                  <img
-                    src={yehudaPhoto}
-                    alt={config.dedication[language]}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
+          <figure className="relative">
+            <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border border-border shadow-[var(--shadow-elegant)] ring-1 ring-white/80 ring-offset-2 ring-offset-background">
+              <img
+                src={yehudaPhoto}
+                alt={config.dedication[language]}
+                className="w-full h-full object-cover grayscale contrast-[0.95] brightness-105 opacity-80"
+              />
+              <div className="absolute inset-0 bg-primary/10 mix-blend-multiply pointer-events-none" />
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    'radial-gradient(ellipse at center, transparent 55%, hsl(var(--background) / 0.55) 100%)',
+                }}
+              />
             </div>
-
-            {/* ז״ל — calligraphic memorial mark */}
-            <figcaption className="relative mt-4 flex items-center gap-3">
-              <span aria-hidden className="h-px w-8 bg-border" />
-              <span className="font-david text-base text-muted-foreground tracking-widest">ז״ל</span>
-              <span aria-hidden className="h-px w-8 bg-border" />
-            </figcaption>
           </figure>
         </div>
 
@@ -86,6 +72,26 @@ export const Header = ({ language, nosach }: HeaderProps) => {
         >
           {dedicationLine}
         </p>
+
+        {/* Remembered saying — « Ya Salam » */}
+        <figure className="mt-6 flex flex-col items-center gap-1.5" dir={isRtl ? 'rtl' : 'ltr'}>
+          <figcaption className="text-[11px] uppercase tracking-[0.22em] font-assistant text-muted-foreground/80">
+            {config.saying.intro[language]}
+          </figcaption>
+          <blockquote
+            className={
+              language === 'hebrew'
+                ? 'font-david text-2xl md:text-3xl text-primary/85'
+                : 'font-cormorant italic text-2xl md:text-3xl font-light text-primary/85 tracking-wide'
+            }
+          >
+            {language === 'hebrew' ? (
+              <>«&nbsp;{config.saying.phraseHebrew}&nbsp;»</>
+            ) : (
+              <>«&nbsp;{config.saying.phrase}&nbsp;»</>
+            )}
+          </blockquote>
+        </figure>
 
         {/* Nosach (small caption under the dedication, in case the toggle is collapsed) */}
         <p className="mt-6 text-xs uppercase tracking-[0.2em] font-assistant text-muted-foreground">
