@@ -165,8 +165,11 @@ export const PrayerText = ({ language, nosach, phoneticMode, fontSize, prayerFon
           if (colonIndex > -1) {
             const beforeColon = innerText.substring(0, colonIndex + 1);
             const afterColon = innerText.substring(colonIndex + 1);
-            
-            segments.push({ text: '(' + beforeColon, isComment: true });
+
+            // Translate the instructional prefix (e.g. בחתונה: → "Au mariage :")
+            const translatedBefore = translateInstruction(beforeColon, language);
+
+            segments.push({ text: '(' + translatedBefore, isComment: true });
             segments.push({ text: afterColon + ')', isComment: false });
           } else {
             // In phonetic mode, parentheses content is not a comment unless it's instruction text

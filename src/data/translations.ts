@@ -288,6 +288,21 @@ export const translations = {
       french: 'Au mariage :',
       english: 'At a wedding:',
     },
+    withTen: {
+      hebrew: 'בעשרה:',
+      french: 'Avec dix :',
+      english: 'With ten:',
+    },
+    ifHisParentsAlive: {
+      hebrew: 'אם אביו ואמו בחיים:',
+      french: 'Si son père et sa mère sont en vie :',
+      english: 'If his father and mother are alive:',
+    },
+    ifHerParentsAlive: {
+      hebrew: 'אם אביה ואמה בחיים:',
+      french: 'Si son père et sa mère sont en vie :',
+      english: 'If her father and mother are alive:',
+    },
     someAdd: {
       hebrew: 'ויש מוסיפים:',
       french: 'Certains ajoutent :',
@@ -376,6 +391,15 @@ const instructionTranslationMap: Record<string, keyof typeof translations.instru
   'בחתונה:': 'atWedding',
   'At a wedding:': 'atWedding',
   'Au mariage :': 'atWedding',
+  // With-ten / parents-alive inline parenthetical prefixes
+  'בעשרה:': 'withTen',
+  'With ten:': 'withTen',
+  'Avec dix :': 'withTen',
+  'אם אביו ואמו בחיים:': 'ifHisParentsAlive',
+  'If his father and mother are alive:': 'ifHisParentsAlive',
+  'Si son père et sa mère sont en vie :': 'ifHisParentsAlive',
+  'אם אביה ואמה בחיים:': 'ifHerParentsAlive',
+  'If her father and mother are alive:': 'ifHerParentsAlive',
   // Some add
   'ויש מוסיפים:': 'someAdd',
   'Some add:': 'someAdd',
