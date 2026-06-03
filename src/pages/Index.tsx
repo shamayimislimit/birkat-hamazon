@@ -2,6 +2,7 @@ import { Header } from '@/components/Header';
 import { NosachToggle } from '@/components/NosachToggle';
 import { SettingsToolbar } from '@/components/SettingsToolbar';
 import { PrayerText } from '@/components/PrayerText';
+import { MemorialSeal } from '@/components/MemorialSeal';
 import { Footer } from '@/components/Footer';
 import { useBirkatSettings } from '@/hooks/useBirkatSettings';
 import { useEffect } from 'react';
@@ -59,6 +60,8 @@ const Index = () => {
             fontSize={settings.fontSize}
             prayerFont={settings.prayerFont}
           />
+
+          <MemorialSeal language={settings.language} />
         </main>
 
         <div className="px-4">
