@@ -6,10 +6,9 @@ const STORAGE_KEY = 'birkat-hamazon-settings';
 
 /**
  * First-run language resolution from `navigator.language`:
- *   he-*   → hebrew
- *   fr-*   → french
- *   en-*   → english (only if supported)
- *   other  → french (default fallback)
+ *   he-* / iw-*  → hebrew
+ *   anything else → french
+ * English is never auto-selected — it must be picked manually in Settings.
  * The user's manual choice (stored in localStorage) always wins on subsequent visits.
  */
 const detectLanguage = (): Language => {
@@ -19,13 +18,14 @@ const detectLanguage = (): Language => {
     typeof navigator !== 'undefined' ? navigator.language : '',
   ].filter(Boolean);
 
-  for (const raw of candidates) {
+  const isHebrewBrowser = candidates.some((raw) => {
     const tag = raw.toLowerCase().split('-')[0];
-    if (tag === 'he' || tag === 'iw') return supported.includes('hebrew') ? 'hebrew' : 'french';
-    if (tag === 'fr') return supported.includes('french') ? 'french' : (config.settings.defaults.language as Language);
-    if (tag === 'en') return supported.includes('english') ? 'english' : 'french';
-  }
-  return supported.includes('french') ? 'french' : (config.settings.defaults.language as Language);
+    return tag === 'he' || tag === 'iw';
+  });
+
+  if (isHebrewBrowser && supported.includes('hebrew')) return 'hebrew';
+  if (supported.includes('french')) return 'french';
+  return config.settings.defaults.language as Language;
 };
 
 const buildDefaults = (): BirkatSettings => ({
