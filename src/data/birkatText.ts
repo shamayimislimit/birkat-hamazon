@@ -227,7 +227,9 @@ const getHebrewPhoneticText = (nosach: Nosach): BirkatContent => {
         "",
         "Some add: Harachaman hu yevarech et chayalei tzeva hahagana leYisrael ve'anshei kochot habitachon ha'omdim al mishmar artzenu.",
         "",
-        "Harachaman hu yita Torato ve'ahavato belibenu vetihyeh yir'ato al panenu levilti necheta, veyihyu chol ma'asenu leshem shamayim."
+        "Harachaman hu yita Torato ve'ahavato belibenu vetihyeh yir'ato al panenu levilti necheta, veyihyu chol ma'asenu leshem shamayim.",
+        "",
+        "On Sukkot: Harachaman hu yakim lanu et sukat David hanofelet."
       ],
       guestBlessing: [
         "Harachaman hu yevarech et hashulchan hazeh she'achalnu alav, visader bo kol ma'adanei olam, veyihyeh keshulchano shel Avraham avinu alav hashalom. Kol ra'ev mimenu yochal, vechol tzame mimenu yishteh, ve'al yechsar mimenu kol tov la'ad ule'olmei olamim, amen. Harachaman hu yevarech et ba'al habayit hazeh uva'al hasedah hazot, hu uvanav ve'ishto vechol asher lo, bevanim sheyichyu uvnichasim sheyirbu. Barech Adonai cheilo ufoal yadav tirtzeh, veyihyu nechasav unchaseinu matzlichim ukerovim la'ir, ve'al yizdakek lefanav velo lefanenu shum devar chet vehirhur avon, sas vesameach kol hayamim be'osher vechavod me'atah ve'ad olam, lo yevosh ba'olam hazeh velo yikalem la'olam haba, amen ken yehi ratzon."
