@@ -231,7 +231,9 @@ const getHebrewPhoneticText = (nosach: Nosach): BirkatContent => {
         "",
         "On Rosh Chodesh: Harachaman hu yechadesh aleinu et hachodesh hazeh letovah velivrachah.",
         "",
-        "On Chol Hamoed Sukkot: Harachaman hu yakim lanu et sukat David hanofelet."
+        "On Sukkot: Harachaman hu yezakenu leshev besukat oro shel livyatan. Harachaman hu yashpi'a aleinu shefa kedushah vetaharah mishiv'ah ushpizin ila'in kadishin, zechutam tehe magen vetzinah ba'adenu. Harachaman hu yakim lanu et sukat David hanofelet.",
+        "",
+        "On Chol Hamoed: Harachaman hu yagi'enu lemo'adim velirgalim acherim haba'im likratenu leshalom."
       ],
       guestBlessing: [
         "Harachaman hu yevarech et hashulchan hazeh she'achalnu alav, visader bo kol ma'adanei olam, veyihyeh keshulchano shel Avraham avinu alav hashalom. Kol ra'ev mimenu yochal, vechol tzame mimenu yishteh, ve'al yechsar mimenu kol tov la'ad ule'olmei olamim, amen. Harachaman hu yevarech et ba'al habayit hazeh uva'al hasedah hazot, hu uvanav ve'ishto vechol asher lo, bevanim sheyichyu uvnichasim sheyirbu. Barech Adonai cheilo ufoal yadav tirtzeh, veyihyu nechasav unchaseinu matzlichim ukerovim la'ir, ve'al yizdakek lefanav velo lefanenu shum devar chet vehirhur avon, sas vesameach kol hayamim be'osher vechavod me'atah ve'ad olam, lo yevosh ba'olam hazeh velo yikalem la'olam haba, amen ken yehi ratzon."

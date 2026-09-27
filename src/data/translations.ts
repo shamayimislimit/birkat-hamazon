@@ -258,6 +258,11 @@ export const translations = {
       french: 'À Souccot:',
       english: 'On Sukkot:',
     },
+    onCholHamoed: {
+      hebrew: 'בחול המועד:',
+      french: 'À Hol Hamoèd:',
+      english: 'On Chol Hamoed:',
+    },
     onCholHamoedSukkot: {
       hebrew: 'בחול המועד סוכות:',
       french: 'À Hol Hamoèd Souccot:',
@@ -337,6 +342,7 @@ const instructionTranslationMap: Record<string, keyof typeof translations.instru
   'בפסח:': 'onPesach',
   'בסוכות:': 'onSukkot',
   'בחול המועד סוכות:': 'onCholHamoedSukkot',
+  'בחול המועד:': 'onCholHamoed',
   'בבית אביו אומר:': 'inFathersHouse',
   'נשוי אומר:': 'marriedManSays',
   'נשואה אומרת:': 'marriedWomanSays',
@@ -368,6 +374,7 @@ const instructionTranslationMap: Record<string, keyof typeof translations.instru
   'On Pesach': 'onPesach',
   'On Sukkot:': 'onSukkot',
   'On Chol Hamoed Sukkot:': 'onCholHamoedSukkot',
+  'On Chol Hamoed:': 'onCholHamoed',
   'On Sukkot': 'onSukkot',
   "A son in his father's house says:": 'inFathersHouse',
   'A married man says:': 'marriedManSays',
