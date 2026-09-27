@@ -196,7 +196,6 @@ const getHebrewPhoneticText = (nosach: Nosach): BirkatContent => {
         "Eloheinu vElohei avotenu, ya'aleh veyavo yagia yera'eh veyeratzeh yishama yipaked veyizacher zichronenu vezichronavotenu, zichron Yerushalayim irecha, vezichron Mashiach ben David avdecha, vezichron kol amcha beit Yisrael lefanecha, lifletah letovah, lechen ulechesed ulrachamim lechayim tovim ulshalom beyom",
         "On Rosh Chodesh: Rosh Hachodesh hazeh",
         "On Pesach: Chag HaMatzot hazeh beyom mikra kodesh hazeh",
-        "On the Yom Tov of Sukkot: Chag HaSukkot hazeh beyom tov mikra kodesh hazeh",
         "On Chol Hamoed Sukkot: Chag HaSukkot hazeh beyom mikra kodesh hazeh",
         "Lerachem bo aleinu ulehoshi'enu. Zochreinu Adonai Eloheinu bo letovah, ufokdenu vo livrachah, vehoshi'enu vo lechayim tovim, uvidvar yeshu'ah verachamim; chus vechonenu, verachem aleinu, vehoshi'enu ki elecha enenu, ki El melech chanun verachum atah."
       ],
@@ -232,9 +231,7 @@ const getHebrewPhoneticText = (nosach: Nosach): BirkatContent => {
         "",
         "On Rosh Chodesh: Harachaman hu yechadesh aleinu et hachodesh hazeh letovah velivrachah.",
         "",
-        "On Yom Tov: Harachaman hu yanchilenu leyom shekulo tov.",
-        "",
-        "On Sukkot and Chol Hamoed: Harachaman hu yakim lanu et sukat David hanofelet."
+        "On Chol Hamoed Sukkot: Harachaman hu yakim lanu et sukat David hanofelet."
       ],
       guestBlessing: [
         "Harachaman hu yevarech et hashulchan hazeh she'achalnu alav, visader bo kol ma'adanei olam, veyihyeh keshulchano shel Avraham avinu alav hashalom. Kol ra'ev mimenu yochal, vechol tzame mimenu yishteh, ve'al yechsar mimenu kol tov la'ad ule'olmei olamim, amen. Harachaman hu yevarech et ba'al habayit hazeh uva'al hasedah hazot, hu uvanav ve'ishto vechol asher lo, bevanim sheyichyu uvnichasim sheyirbu. Barech Adonai cheilo ufoal yadav tirtzeh, veyihyu nechasav unchaseinu matzlichim ukerovim la'ir, ve'al yizdakek lefanav velo lefanenu shum devar chet vehirhur avon, sas vesameach kol hayamim be'osher vechavod me'atah ve'ad olam, lo yevosh ba'olam hazeh velo yikalem la'olam haba, amen ken yehi ratzon."
