@@ -10,6 +10,8 @@ interface MemorialSealProps {
  * before the developer footer. A quiet sign-off, not a decoration.
  */
 export const MemorialSeal = ({ language }: MemorialSealProps) => {
+  // A client without a personal saying gets no seal
+  if (!config.saying) return null;
   const isRtl = language === 'hebrew';
 
   return (

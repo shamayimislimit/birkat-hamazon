@@ -6,3 +6,7 @@ dist
 .DS_Store
 .vite
 dev-dist
+
+# Client builds
+.client-build/
+dist-clients/
