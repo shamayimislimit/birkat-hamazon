@@ -53,7 +53,8 @@ export default defineConfig(({ mode }) => ({
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,webmanifest}'],
         navigateFallback: '/birkat-hamazon/index.html',
-        navigateFallbackDenylist: [/^\/api\//],
+        // Sub-apps hosted under /birkat-hamazon/ (e.g. the Lior & Eitan wedding one) must reach the network, not this app's index.html
+        navigateFallbackDenylist: [/^\/api\//, /^\/birkat-hamazon\/lior-and-eitan(\/|$)/],
         cleanupOutdatedCaches: true,
         clientsClaim: true,
         skipWaiting: true,
