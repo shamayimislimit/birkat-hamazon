@@ -55,6 +55,7 @@ export default defineConfig(({ mode }) => ({
         navigateFallback: '/birkat-hamazon/index.html',
         // Sub-apps hosted under /birkat-hamazon/ (e.g. the Lior & Eitan wedding one) must reach the network, not this app's index.html
         navigateFallbackDenylist: [/^\/api\//, /^\/birkat-hamazon\/lior-and-eitan(\/|$)/],
+        importScripts: ['sw-subapps.js'],
         cleanupOutdatedCaches: true,
         clientsClaim: true,
         skipWaiting: true,
